@@ -9,10 +9,7 @@ if(num < 0){
     num1 = num;
 
 }
-console.log('num1===> ',num1)
 let change = num1.toString();
-console.log('change ==== > ',change)
-
 if (change.length < nth){
     return 0;
 }
@@ -20,4 +17,35 @@ if (change.length < nth){
 let find = (change.charAt(change.length - nth)*1)
 return find;
 }
-module.exports = {findDigit}
+function inAscOrder(arr){
+  if(arr.length <= 1 ){
+    return 0;
+  }
+  for(let i = 1 ; i < arr.length ; i++){
+    if(arr[i] < arr[i-1]){
+      return false
+    }
+  }
+return true;
+}
+function getMiddle(s){
+  if (s.length <= 2){
+    return "";
+  }
+  if(s.length % 2 !== 0){
+    var x = Math.floor(s.length / 2)
+    //console.log(s[x] + s[x+1]);
+
+    return s[x]
+  }
+  if(s.length % 2 === 0){
+    var x = Math.floor(s.length / 2)
+    console.log(s[x] + s[x+1]);
+    return(s[x-1] + s[x]);
+}
+  }
+
+
+
+
+module.exports = {findDigit,inAscOrder,getMiddle}
