@@ -1,4 +1,10 @@
-const {findDigit,inAscOrder,getMiddle} = require('./findDigit')
+const {
+    findDigit,
+    inAscOrder,
+    getMiddle,
+    removeEveryOther,
+    initializeNames
+} = require('./findDigit')
 describe("this function is to return the nth digit of num (counting from right to left).",()=>{
     test("findDigit",()=>{
         expect(findDigit(4315,0)).toBe(-1)
@@ -21,7 +27,7 @@ describe("this function is return true if the numbers in the array are in ascend
         expect(inAscOrder([1,2,2,7,6])).toBe(false);
     })
 })
-describe.only("this function is to return the middle character/s of the word.",()=>{
+describe("this function is to return the middle character/s of the word.",()=>{
     test ("getMiddle",()=>{
         expect(getMiddle("")).toBe("");
         expect(getMiddle("aa")).toBe("");
@@ -34,3 +40,25 @@ describe.only("this function is to return the middle character/s of the word.",(
 
     })
 })
+
+describe("function is to remove every second element from the array",()=>{
+    test("removeEveryOther",()=>{
+        expect(removeEveryOther([])).toBe(0)
+        expect(removeEveryOther(["Hello"])).toBe(0)
+        expect(removeEveryOther(["Hello","world"])).toEqual(["Hello"])
+        expect(removeEveryOther(["One","Two","Three","Four","Five","Six"])).toEqual(["One","Three","Five"])
+    })
+})
+describe.only("this function is to initialize the middle names (if there is any).",()=>{
+    test("Initialize Names", ()=>{    
+        expect(initializeNames('Dimitri')).toEqual('Dimitri')
+        expect(initializeNames('Jack Ryan')).toEqual('Jack Ryan')
+        expect(initializeNames('Lois Mary Lane')).toEqual('Lois M. Lane')
+        expect(initializeNames('Lois Mary Lane')).toEqual('Lois M. Lane')
+        expect(initializeNames('Alice Betty Catherine Davis')).toEqual('Alice B. C. Davis')
+
+
+    })
+})
+
+
