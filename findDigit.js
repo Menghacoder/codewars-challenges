@@ -121,6 +121,13 @@ for (let i = 1924 ; i <= year ; i++){
   return elem + " " + anim
 }
 // ********************************************************************
+function toLeetSpeak(str){
+
+}
 
 
-module.exports = {findDigit,inAscOrder,getMiddle,removeEveryOther,initializeNames,powersOfTwo,chineseZodiac}
+
+// ********************************************************************
+
+
+module.exports = {findDigit,inAscOrder,getMiddle,removeEveryOther,initializeNames,powersOfTwo,chineseZodiac,toLeetSpeak}
