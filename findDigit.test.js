@@ -3,7 +3,9 @@ const {
     inAscOrder,
     getMiddle,
     removeEveryOther,
-    initializeNames
+    initializeNames,
+    powersOfTwo,
+    chineseZodiac
 } = require('./findDigit')
 describe("this function is to return the nth digit of num (counting from right to left).",()=>{
     test("findDigit",()=>{
@@ -49,7 +51,7 @@ describe("function is to remove every second element from the array",()=>{
         expect(removeEveryOther(["One","Two","Three","Four","Five","Six"])).toEqual(["One","Three","Five"])
     })
 })
-describe.only("this function is to initialize the middle names (if there is any).",()=>{
+describe("this function is to initialize the middle names (if there is any).",()=>{
     test("Initialize Names", ()=>{    
         expect(initializeNames('Dimitri')).toEqual('Dimitri')
         expect(initializeNames('Jack Ryan')).toEqual('Jack Ryan')
@@ -57,8 +59,25 @@ describe.only("this function is to initialize the middle names (if there is any)
         expect(initializeNames('Lois Mary Lane')).toEqual('Lois M. Lane')
         expect(initializeNames('Alice Betty Catherine Davis')).toEqual('Alice B. C. Davis')
 
+    })
+})
+describe("this function is takes a non-negative integer n as input, and returns a list of all the powers of 2 with the exponent ranging from 0 to n (inclusive)", ()=>{
+    test("Testing for fixed tests",()=>{
+        expect(powersOfTwo(0)).toEqual([1])
+        expect(powersOfTwo(1)).toEqual([1,2])
+        expect(powersOfTwo(2)).toEqual([1,2,4])
+        expect(powersOfTwo(4)).toEqual([1,2,4,8,16])
+    })
+})
+describe.only("function for The Chinese zodiac is a repeating cycle of 12 years",()=>{
+    test("xample Test Cases",()=>{
+       expect(chineseZodiac(1965)).toBe("Wood Snake")
+       expect(chineseZodiac(1938)).toBe("Earth Tiger")
+       expect(chineseZodiac(1998)).toBe("Earth Tiger")
+       expect(chineseZodiac(2016)).toBe("Fire Monkey")
+       expect(chineseZodiac(1924)).toBe("Wood Rat")
+       expect(chineseZodiac(1968)).toBe("Earth Monkey")
+       expect(chineseZodiac(2162)).toBe("Water Dog")
 
     })
 })
-
-

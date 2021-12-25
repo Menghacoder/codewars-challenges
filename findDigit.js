@@ -74,15 +74,53 @@ function initializeNames(name){
   var iniMidNames = ""
 for(let i = 1 ; i < name.split(" ").length-1; i++){
   iniMidNames = iniMidNames + name.split(" ")[i].split('')[0] + '. '
-
 }
 return 'Last Solution', firstName +" "+  iniMidNames + lastName
 
 }
 
+// ********************************************************************
 
+function powersOfTwo (n){
+  var arr = [];
+  for (let i =0 ; i <= n ; i++){
+    arr.push(Math.pow(2,i))
+  }
+  return arr
+}
 
+// ********************************************************************
+function chineseZodiac(year){
+  var animals = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig']
+  var elements = ['Wood', 'Fire', 'Earth', 'Metal', 'Water']
+  var count = 0;
+
+var anim = ''
+var elem = ''
+
+for (let i = 1924 ; i <= year ; i++){
+anim = animals[count];
+count = count + 1;
+if (count % 12 === 0){
+  count = 0;
+}
+}
+var doubleElements = []
+for (var i =0 ; i < elements.length; i++){
+  doubleElements.push (elements[i]);
+  doubleElements.push (elements[i]);
+}
+count = 0;
+for (let i = 1924 ; i <= year ; i++){
+  elem = doubleElements[count];
+  count = count + 1;
+  if (count % 10 === 0){
+    count = 0;
+  }
+  }
+  return elem + " " + anim
+}
 // ********************************************************************
 
 
-module.exports = {findDigit,inAscOrder,getMiddle,removeEveryOther,initializeNames}
+module.exports = {findDigit,inAscOrder,getMiddle,removeEveryOther,initializeNames,powersOfTwo,chineseZodiac}
